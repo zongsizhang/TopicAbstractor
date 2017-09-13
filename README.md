@@ -27,7 +27,7 @@ There are two func_name ready to use
 "tfidf" mode will parse all linked out pages as document set and calculate tf-idf, so it's slow even though I've made all tasks done parallel. Now I set maximam environment document number to 50 and not open to be modified.
 
 ```shell
-python 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/' 'tf'
+python picker.py 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/' 'tf'
 ```
 
 ## Design
