@@ -140,7 +140,7 @@ class DocumentSet(object):
 				cnt += 1.0
 		return math.log(total_cnt / cnt) 
 
-	def statistic_tf(self, pick_num = 20):
+	def statistic_tf(self):
 		""" Statistic TF
 
 		calculate and sort terms in main doc by tf
@@ -154,7 +154,7 @@ class DocumentSet(object):
 		"""
 		return sorted(self.main_doc.term_dict.items(), key=operator.itemgetter(1), reverse=True)
 
-	def statistic_tfidf(self, pick_num = 20):
+	def statistic_tfidf(self):
 		""" Statistic TF-IDF
 
 		calculate and sort terms in main doc by tf-idf
