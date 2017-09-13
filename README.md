@@ -1,4 +1,4 @@
-# TopicAbstractor
+# Topic Extractor
 
 ## Term Definition
 
@@ -80,7 +80,7 @@ The responsibility of DocumentSet is to keep main and environment doc and do com
 	2.2 do stemming work, if stemverb set True, do extra stemming work on verbs
 
 	2.3 remove stop words
-	
+
 	2.4 return word list
 
 ### Experiments
