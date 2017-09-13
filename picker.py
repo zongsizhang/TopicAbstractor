@@ -1,3 +1,7 @@
+"""
+picker.py
+Created by Zongsi Zhang, 09/12/2017
+"""
 import sys
 from topicproducer import TermProducer
 from topicproducer import DocumentSet
@@ -43,6 +47,16 @@ def pickTerm(aurl, pick_num=20, func_name='tf'):
 	print('\n' + str(end-start) + 'second')
 
 def main():
+	""" Main
+	main function takes 2 arguments to call pickTerm
+
+	Args:
+		argv[1]: url of web page
+		argv[2]: function name
+
+	raise:
+		ValueError: raise when argument number not correct
+	"""
 	if len(sys.argv) != 3:
 		raise ValueError('number of arguments should be 2')
 
