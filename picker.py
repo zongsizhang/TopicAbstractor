@@ -1,3 +1,4 @@
+import sys
 from topicproducer import TermProducer
 from topicproducer import DocumentSet
 from time import time
@@ -28,19 +29,24 @@ def pickTerm(aurl, pick_num=20, func_name='tf'):
 
 	start = time()
 
-	if func_name is 'tf':
+	if func_name == 'tf':
 		term_producer = TermProducer(0)
 		doc_set = term_producer.build_doc_set(aurl)
 		print doc_set.statistic_tf()[:pick_num]
-	if func_name is 'tfidf':
+	if func_name == 'tfidf':
 		term_producer = TermProducer(1)
 		doc_set = term_producer.build_doc_set(aurl)
 		print doc_set.statistic_tfidf()[:pick_num]
+	else:
+		print func_name + ' currently not support, please enter tf or tfidf'
 	end = time()
 	print(str(end-start) + 'second')
 
 def main():
-	pickTerm('http://www.ebay.com/itm/Free-People-Amelia-Purple-Mock-Neck-Mini-Dress-Size-XS-NWT-MSRP-118-OB536553/232471228501', 20, 'tfidf')
+	if len(sys.argv) != 3
+		raise ValueError('number of arguments should be 2')
+
+	pickTerm(sys.argv[1], 20, sys.argv[2])
 
 if __name__ == "__main__":
 	main()
