@@ -65,9 +65,7 @@ The responsibility of DocumentSet is to keep main and environment doc and do com
 
 	1.5 send word to 2. npl logics
 
-	1.6 if links needs to be parsed, parse and save into Document.links, go to 1.7
-
-		else end
+	1.6 if links needs to be parsed, parse and save into Document.links, go to 1.7. else end
 
 	1.7 grab all links main page has, take first max_env_size links and fetch their content
 
@@ -76,9 +74,13 @@ The responsibility of DocumentSet is to keep main and environment doc and do com
 	1.9 Make sure every thread done, return doc set.
 
 2. npl logics
+
 	2.1 in one itrate, split the big text into words, do trim on every word, filter words with only puncts and numberics.
+
 	2.2 do stemming work, if stemverb set True, do extra stemming work on verbs
+
 	2.3 remove stop words
+	
 	2.4 return word list
 
 ### Experiments
