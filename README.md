@@ -38,6 +38,10 @@ For a single page, we can only calculate its term frequency, this works for cont
 
 General solution is to filter elements with tags like 'script' and 'style'. But according to my experiment, beautifulsoup is so strong that it will also grab contents of other resources like .css and .js file. Contents of this files can't be filtered by soupt.find_all, so I directly removed elements with tag name 'link'.
 
+### weight of title
+
+I consider title as the most important in tf calculation, so after counting words in body, I merge words in title into body with counts same as the maximum count in body word list. 
+
 ### multithreading
 
 To deal with the time cost of parsing multiple pages, I take use of multi thread. I use a lock to guarantee concurrency of the list of environment documents and I take use of *grequests* to do content retreving work parallelized.
@@ -130,10 +134,6 @@ In this project I simpy tokenize by split by blanckspace, this will break nomina
 2. SSL problem
 
 For some pages I tried, I meet the SSL cerfiticate problem.
-
-3. robot get blocked
-
-When try to work on Amazon's pages, I get blocked due to visit too frequently.
 
 4. all in memory
 
