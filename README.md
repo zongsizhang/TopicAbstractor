@@ -111,7 +111,7 @@ For tfidf we have 43 more pages to handle, so multi-thread does can optimize eff
 
 ## Problems to be solved
 
-1. Brute-force nlp
+1. Brute-force tokenization
 
 In this project I simpy tokenize by split by blanckspace, this will break nominal phrases that may contribute a lot.
 
