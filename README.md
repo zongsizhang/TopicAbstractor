@@ -18,15 +18,17 @@
 
 In picker.py I wrote a fnction named pickTerm. This is a sampe about how to call the topicproducer and how to manipulate DocumentSet. 
 
-```python
-def pickTerm(aurl, pick_num=20, func_name='tf'):
-	# There are now two functions available, "tf" and "tfidf"
-	# pick_num can set number of terms to be picked
-```
+To run picker.py, please enter two arguments, the url and functions to rank.
+
+There are two func_name ready to use
 
 "tf" mode will just count the term frequency of this page
 
 "tfidf" mode will parse all linked out pages as document set and calculate tf-idf, so it's slow even though I've made all tasks done parallel. Now I set maximam environment document number to 50 and not open to be modified.
+
+```shell
+python 'http://www.cnn.com/2013/06/10/politics/edward-snowden-profile/' 'tf'
+```
 
 ## Design
 
