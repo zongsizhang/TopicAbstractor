@@ -54,15 +54,25 @@ The responsibility of DocumentSet is to keep main and environment doc and do com
 ### Work flow (before statistic work)
 
 1. parse content
+
 	1.1 request main page
+
 	1.2 use beautifulsoup to build xml tree
+
 	1.3 delete elements of tag 'link'
+
 	1.4 pour soup into a str with a filter that rejects specific filters(filters can be customized)
+
 	1.5 send word to 2. npl logics
+
 	1.6 if links needs to be parsed, parse and save into Document.links, go to 1.7
+
 		else end
+
 	1.7 grab all links main page has, take first max_env_size links and fetch their content
+
 	1.8 For every page, start a a thread from 1. parse content
+
 	1.9 Make sure every thread done, return doc set.
 
 2. npl logics
