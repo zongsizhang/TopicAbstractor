@@ -252,22 +252,28 @@ class TermProducer(object):
 		content.raise_for_status()
 		docset = DocumentSet(self.__parse_to_doc(content.text, 0, self.__dindex))
 
-		# if depth is zero, don't need to parse link out pages
+		# if depth is zero, don't need to parse environment pages
 		if(self.__dindex is 0):
 			return docset
-		# build env pages
+		'''
+		start building env pages
+		'''
 		tovisit = docset.main_doc.links[:max_env_size]
 		rs = (grequests.get(u) for u in tovisit)
 		threads = []
+		# use grequest to parallelly retrieve pages
 		for response in grequests.map(rs):
-			thread = threading.Thread(target=self.build_env_docs, args=(response.content, 1, 1, docset.env_docs))
-			threads.append(thread)
+			if not response is None:
+				thread = threading.Thread(target=self.build_env_docs, args=(response.content, 1, 1, docset.env_docs))
+				threads.append(thread)
 
 		# start and join threads to make sure results correct
 		for t in threads:
 			t.start()
+
 		for t in threads:
 			t.join()
+		
 		return docset
 		
 
