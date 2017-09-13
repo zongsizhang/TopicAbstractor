@@ -33,17 +33,17 @@ def pickTerm(aurl, pick_num=20, func_name='tf'):
 		term_producer = TermProducer(0)
 		doc_set = term_producer.build_doc_set(aurl)
 		print doc_set.statistic_tf()[:pick_num]
-	if func_name == 'tfidf':
+	elif func_name == 'tfidf':
 		term_producer = TermProducer(1)
 		doc_set = term_producer.build_doc_set(aurl)
 		print doc_set.statistic_tfidf()[:pick_num]
 	else:
 		print func_name + ' currently not support, please enter tf or tfidf'
 	end = time()
-	print(str(end-start) + 'second')
+	print('\n' + str(end-start) + 'second')
 
 def main():
-	if len(sys.argv) != 3
+	if len(sys.argv) != 3:
 		raise ValueError('number of arguments should be 2')
 
 	pickTerm(sys.argv[1], 20, sys.argv[2])
