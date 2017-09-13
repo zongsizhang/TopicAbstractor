@@ -109,6 +109,18 @@ tfidf mode costs 13.2314298153s
 
 For tfidf we have 43 more pages to handle, so multi-thread does can optimize effiency.
 
+## Dependencies
+
+ntlk
+
+lxml
+
+beautifulsoup
+
+requests
+
+grequests
+
 ## Problems to be solved
 
 1. Brute-force tokenization
